@@ -1,0 +1,74 @@
+---
+title       : The Perfect Vacation Spot
+subtitle    : Data Products Project
+author      : Jaime Hernandez
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+## Introduction
+
+The Perfect Vacation Spot finder is a tool targeted at the significant subset of the population that struggles deciding where to go for their next vacation. The tool as a simple input and output.
+
+* Input: Number of Vacation Spots desired
+
+* Output: Leaflet map with the desired number of vacation spots (randomly generated).
+
+The concept of this application is very simple due the very powerful Paradox of Choice.
+
+The Paradox dictates that humans tend to be happier about their decisions when there are less options to choose from.
+
+Event though the application generates random vacation spots, leaning on this concept, the number of possible choices is immediately reduced and thus users will tend to be happier about their selection from the options provided by the app.
+
+
+--- .class #id 
+
+## ui.R code
+
+![title](./assets/img/ui_pic.PNG)
+
+--- .class #id 
+
+## server.R code
+
+![title](./assets/img/server_pic.PNG)
+
+--- .class #id 
+
+## Vacation Spot Selection
+Longitude and latitude
+
+
+
+```r
+for (i in 1:2) {
+            if (i == 1) {
+                lng <- runif(1, 0.1, 180)
+                lat <- runif(1, 0.1, 90)
+            } else {
+            lng <- c(lng, runif(1, -180, 180))
+            lat <- c(lat, runif(1, -90, 90))
+            }
+        }
+        vacation_spots <- data.frame(lat, lng)
+        vacation_spots
+```
+
+```
+##         lat         lng
+## 1  11.97430 146.2864387
+## 2 -66.86697  -0.7131025
+```
+
+--- .class #id 
+
+
+## Web App View
+
+Go to the app [here](https://jaimeoh123.shinyapps.io/week_4/)
+
+--- .class #id 

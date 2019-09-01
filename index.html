@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Perfect Vacation Spot</title>
+  <meta charset="utf-8">
+  <meta name="description" content="The Perfect Vacation Spot">
+  <meta name="author" content="Jaime Hernandez">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>The Perfect Vacation Spot</h1>
+    <h2>Data Products Project</h2>
+    <p>Jaime Hernandez<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Introduction</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The Perfect Vacation Spot finder is a tool targeted at the significant subset of the population that struggles deciding where to go for their next vacation. The tool as a simple input and output.</p>
+
+<ul>
+<li><p>Input: Number of Vacation Spots desired</p></li>
+<li><p>Output: Leaflet map with the desired number of vacation spots (randomly generated).</p></li>
+</ul>
+
+<p>The concept of this application is very simple due the very powerful Paradox of Choice.</p>
+
+<p>The Paradox dictates that humans tend to be happier about their decisions when there are less options to choose from.</p>
+
+<p>Event though the application generates random vacation spots, leaning on this concept, the number of possible choices is immediately reduced and thus users will tend to be happier about their selection from the options provided by the app.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>ui.R code</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="./assets/img/ui_pic.PNG" alt="title"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>server.R code</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="./assets/img/server_pic.PNG" alt="title"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Vacation Spot Selection</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Longitude and latitude</p>
+
+<pre><code class="r">for (i in 1:2) {
+            if (i == 1) {
+                lng &lt;- runif(1, 0.1, 180)
+                lat &lt;- runif(1, 0.1, 90)
+            } else {
+            lng &lt;- c(lng, runif(1, -180, 180))
+            lat &lt;- c(lat, runif(1, -90, 90))
+            }
+        }
+        vacation_spots &lt;- data.frame(lat, lng)
+        vacation_spots
+</code></pre>
+
+<pre><code>##         lat         lng
+## 1  11.97430 146.2864387
+## 2 -66.86697  -0.7131025
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Web App View</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Go to the app <a href="https://jaimeoh123.shinyapps.io/week_4/">here</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Introduction'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='ui.R code'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='server.R code'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Vacation Spot Selection'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Web App View'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='NA'>
+         6
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
